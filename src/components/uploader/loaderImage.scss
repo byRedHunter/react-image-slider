@@ -1,0 +1,28 @@
+@import '../../utils/sass/vars.scss';
+
+.loader {
+	background: rgba($color-com, 0.5);
+	border-radius: 5px;
+	padding: 20px 10px;
+	width: 100%;
+	min-height: 110px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	box-shadow: 0 5px 10px 0 rgba($color-light, 0.2);
+	&__title {
+		color: $color-primary;
+	}
+	&__progress {
+		height: 10px;
+		width: 100%;
+		border-radius: 5px;
+		background-color: $color-secondary;
+		overflow: hidden;
+		&--bar {
+			width: 0%;
+			height: 100%;
+			background-color: $color-primary;
+		}
+	}
+}
