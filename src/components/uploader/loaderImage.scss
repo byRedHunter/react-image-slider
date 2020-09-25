@@ -1,11 +1,12 @@
 @import '../../utils/sass/vars.scss';
 
 .loader {
+	margin-right: 20px;
 	background: rgba($color-com, 0.5);
 	border-radius: 5px;
 	padding: 20px 10px;
 	width: 100%;
-	min-height: 110px;
+	height: 110px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -24,5 +25,11 @@
 			height: 100%;
 			background-color: $color-primary;
 		}
+	}
+}
+
+@media screen and (min-width: 600px) {
+	.loader {
+		transform: translateY(150%);
 	}
 }
