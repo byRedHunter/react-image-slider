@@ -7,7 +7,7 @@ const useFirestore = (collection) => {
 	useEffect(() => {
 		const unsub = fbFirestore
 			.collection(collection)
-			.orderBy('createdAt', 'desc')
+			.orderBy('createdAt', 'asc')
 			.onSnapshot((snap) => {
 				let documents = []
 
