@@ -10,3 +10,14 @@
 		row-gap: 40px;
 	}
 }
+
+@media screen and (min-width: 900px) {
+	.main {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		&__container {
+			grid-template: 1fr / 1fr 1.5fr;
+		}
+	}
+}
