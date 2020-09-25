@@ -31,7 +31,6 @@ const DragImage = ({ setMedia, setLoading }) => {
 
 		if (valid && file) {
 			setLoading(true)
-			console.log('Image Uploaded')
 		} else {
 			setError(true)
 			setMessageError('First, upload an image')
@@ -49,6 +48,9 @@ const DragImage = ({ setMedia, setLoading }) => {
 		fileReader.addEventListener('load', (e) => {
 			setImage(e.target.result)
 		})
+
+		setFile(file)
+		setMedia(file)
 	}
 
 	const addImage = (e) => {
@@ -66,9 +68,7 @@ const DragImage = ({ setMedia, setLoading }) => {
 		const valid = isImageValid(file)
 
 		if (valid) {
-			setFile(file)
 			showImage(file)
-			setMedia(file)
 		} else {
 			setFile(null)
 		}
