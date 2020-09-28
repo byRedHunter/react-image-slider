@@ -6,10 +6,15 @@ import useFirestore from '../../hooks/useFirestore'
 // statics
 import './slider.scss'
 
+// components
+import Image from './Image'
+import Loader from './Loader'
+
 const Slider = () => {
 	const { docs } = useFirestore('images')
 	const [images, setImages] = useState([])
 	const [sliderActive, setSliderActive] = useState(null)
+	const [amountSlider, setAmountSlider] = useState(undefined)
 
 	useEffect(() => {
 		let data = []
@@ -18,9 +23,8 @@ const Slider = () => {
 
 		setImages(data)
 		setSliderActive(data.length - 1)
+		setAmountSlider(data.length - 1)
 	}, [docs])
-
-	let amountSlider = images.length - 1
 
 	const goPrev = () => {
 		let pos = sliderActive
@@ -56,13 +60,9 @@ const Slider = () => {
 				</div>
 			</div>
 
-			{docs ? (
-				<div className='slider__container'>
-					<img src={images[sliderActive]} alt='Slider Item' />
-				</div>
-			) : (
-				<p>You don't images.</p>
-			)}
+			<div className='slider__container'>
+				{amountSlider >= 0 ? <Image src={images[sliderActive]} /> : <Loader />}
+			</div>
 		</section>
 	)
 }
